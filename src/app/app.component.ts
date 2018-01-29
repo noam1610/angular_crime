@@ -17,9 +17,14 @@ import {
 } from '@angular/http';
 import * as request from 'request';
 import { MzButtonModule, MzInputModule } from 'ng2-materialize';
-import { MzRadioButtonModule } from 'ng2-materialize'
+import { MzRadioButtonModule } from 'ng2-materialize';
+import *  as _ from 'lodash';
 
 
+let list_district_coordonates = {};
+let list_district = []
+let list_district_bis = []
+let map;
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -31,11 +36,11 @@ export class AppComponent implements OnInit {
     title = 'app';
     myValue = 'pedestrian'
     data_polyg;
-    map;
+    public map;
     date;
     time;
 
-    search(){
+    private search(){
         if(this.myValue == 'pedestrian'){
             console.log(this.date);
             console.log(this.time[0] + this.time[1]);
@@ -51,42 +56,33 @@ export class AppComponent implements OnInit {
 
             request("https://raw.githubusercontent.com/noam1610/angular_crime/master/resident.json", function(error, response, body) {
                 console.log("error", error)
-                //console.log("body", JSON.parse(body))
+                console.log("body", JSON.parse(body))
+                console.log("response", response)
 
-                  var list_district = [];
-                        let getRandomColor = function() {
-                            var letters = '0123456789ABCDEF';
-                            var color = '#';
-                            for (var i = 0; i < 6; i++) {
-                                color += letters[Math.floor(Math.random() * 16)];
-                            }
-                            return color;
-                        };
-                    console.log(this.data_polyg)
-                for (var i = 0; i < this.data_polyg.length; i++) {
-                    var elem = this.data_polyg[i];
-                    if (!list_district.includes(elem.properties.beat_num)) {
-                        list_district.push(elem.properties.beat_num)
-                        console.log(elem.properties.beat_num);
-                        this.map.addLayer({
-                            'id': elem.properties.beat_num,
+                let polygon = JSON.parse(body)[days[day]][hour]
+                console.log(polygon)
+
+                _.forEach(polygon, function(value, key) {
+                    console.log("key", key)
+                    map.addLayer({
+                            'id':key + "_noam",
                             'type': 'fill',
                             'source': {
                                 'type': 'geojson',
                                 'data': {
                                     'type': 'Feature',
-                                    'geometry': elem.geometry
+                                    'geometry': list_district_coordonates[key]
                                 }
                             },
                             'layout': {},
                             'paint': {
-                                'fill-color': getRandomColor(),
-                                'fill-opacity': 0.6
+                                'fill-color': 'rgb(' + parseFloat(value)*255+', 0, 0)',
+                                'fill-opacity': 1
                             }
                         });
+                });
 
-                    }
-                }
+
             })
         }
     }
@@ -111,7 +107,7 @@ export class AppComponent implements OnInit {
     public dateOfBirth = '2017-08-12';
 
     ngOnInit() {
-        var list_district = [];
+       let list_district = []
         let getRandomColor = function() {
             var letters = '0123456789ABCDEF';
             var color = '#';
@@ -129,7 +125,7 @@ export class AppComponent implements OnInit {
             zoom: 10
         });
 
-        let map = this.map
+        map = this.map
         map.on('load', function() {
             request("https://raw.githubusercontent.com/Bended/bsafe/master/noam.json", function(error, response, body) {
                 console.log('error:', error); // Print the error if one occurred
@@ -139,11 +135,12 @@ export class AppComponent implements OnInit {
 
                 for (var i = 0; i < this.data_polyg.length; i++) {
                     var elem = this.data_polyg[i];
-                    if (!list_district.includes(elem.properties.beat_num)) {
-                        list_district.push(elem.properties.beat_num)
+                    if (!list_district.includes(parseInt(elem.properties.beat_num))) {
+                        list_district.push(parseInt(elem.properties.beat_num))
+                        list_district_coordonates[parseInt(elem.properties.beat_num)] = elem.geometry;
                         console.log(elem.properties.beat_num);
                         map.addLayer({
-                            'id': elem.properties.beat_num,
+                            'id': "" + parseInt(elem.properties.beat_num),
                             'type': 'fill',
                             'source': {
                                 'type': 'geojson',
