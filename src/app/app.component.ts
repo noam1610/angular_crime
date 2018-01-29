@@ -44,6 +44,13 @@ export class AppComponent implements OnInit {
 
     }
 
+    public options: Pickadate.DateOptions = {
+      format: 'dddd, dd mmm, yyyy',
+      formatSubmit: 'yyyy-mm-dd',
+    };
+
+    public dateOfBirth = '2017-08-12';
+
     ngOnInit() {
         var list_district = [];
         let getRandomColor = function() {

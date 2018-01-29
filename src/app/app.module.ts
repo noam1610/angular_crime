@@ -6,6 +6,7 @@ import { MzButtonModule, MzInputModule } from 'ng2-materialize';
 import { MzRadioButtonModule } from 'ng2-materialize'
 import { MzSelectModule } from 'ng2-materialize'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MzDatepickerModule } from 'ng2-materialize'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MzInputModule,
     MzRadioButtonModule,
     FormsModule,
-    MzSelectModule
+    MzSelectModule,
+    MzDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

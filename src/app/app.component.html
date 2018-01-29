@@ -32,13 +32,11 @@
               <option data-icon="assets/select-icon-3.jpg" class="left circle" [value]="driver">Driver</option>
             </select>
           </mz-select-container>
-          <li class="list-group-item" data-color="success">Woman</li>
-          <li class="list-group-item" data-color="success">Pedestrian</li>
-          <li class="list-group-item" data-color="danger">Resident</li>
-          <li class="list-group-item" data-color="info">Driver</li>
-          <li class="list-group-item" data-color="warning">Policeman</li>
         </ul>
         <br />
+        <mz-datepicker-container class="col s12">
+          <input mz-datepicker [label]="'Date of birth'" [options]="options" [(ngModel)]="dateOfBirth" id="datepicker" placeholder="Select your birth date" type="text">
+        </mz-datepicker-container>
         <span id="ex6CurrentSliderValLabel">What time : <span id="ex6SliderVal">3</span>h</span>
         <input id="ex6" type="text" data-slider-min="0" data-slider-max="24" data-slider-step="0.5" data-slider-value="10" />
         <br />
