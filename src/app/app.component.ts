@@ -31,7 +31,29 @@ let map;
     styleUrls: ['./app.component.css'],
     
 })
+export class AppComponent{
+    myValue = 'pedestrian'
+    openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
 
+    closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+    constructor() {
+
+    }
+
+    public options: Pickadate.DateOptions = {
+      format: 'dddd, dd mmm, yyyy',
+      formatSubmit: 'yyyy-mm-dd',
+    };
+
+    public dateOfBirth = '2017-08-12';
+
+}
+/*
 export class AppComponent implements OnInit {
     title = 'app';
     myValue = 'pedestrian'
@@ -61,27 +83,40 @@ export class AppComponent implements OnInit {
 
                 let polygon = JSON.parse(body)[days[day]][hour]
                 console.log(polygon)
+                map.remove()
+                mapboxgl.accessToken = 'pk.eyJ1Ijoibm9hbTE2MTAiLCJhIjoiY2phamgzdzFxMjlhbTMzbGV1aWg4MWY3dyJ9.ozjyeDjaIBuTLIlMsYeMbg';
+                this.map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/noam1610/cjcyy7a72041t2squlngaxgdw',
+                    center: [-87.8, 41.87],
+                    zoom: 10
+                });
 
+                map = this.map
+                 map.on('load', function() {
                 _.forEach(polygon, function(value, key) {
-                    console.log("key", key)
+                    // console.log("key", key)
+                    // console.log(map.getLayer("$" + parseInt(key)))
+                    // console.log("key", key)
+                    // console.log(map.removeLayer("$" + parseInt(key)))
                     map.addLayer({
-                            'id':key + "_noam",
+                            'id': "$" + parseInt(key),
                             'type': 'fill',
                             'source': {
                                 'type': 'geojson',
                                 'data': {
                                     'type': 'Feature',
-                                    'geometry': list_district_coordonates[key]
+                                    'geometry': list_district_coordonates["$" + parseInt(key)]
                                 }
                             },
                             'layout': {},
                             'paint': {
-                                'fill-color': 'rgb(' + parseFloat(value)*255+', 0, 0)',
+                                'fill-color': 'rgb(' + parseFloat(value)*255 +', 84, 57)',
                                 'fill-opacity': 1
                             }
                         });
                 });
-
+})
 
             })
         }
@@ -135,12 +170,12 @@ export class AppComponent implements OnInit {
 
                 for (var i = 0; i < this.data_polyg.length; i++) {
                     var elem = this.data_polyg[i];
-                    if (!list_district.includes(parseInt(elem.properties.beat_num))) {
-                        list_district.push(parseInt(elem.properties.beat_num))
-                        list_district_coordonates[parseInt(elem.properties.beat_num)] = elem.geometry;
-                        console.log(elem.properties.beat_num);
+                    if (!list_district.includes("$" + parseInt(elem.properties.beat_num))) {
+                        list_district.push("$" + parseInt(elem.properties.beat_num))
+                        list_district_coordonates["$" + parseInt(elem.properties.beat_num)] = elem.geometry;
+                        console.log("$" + parseInt(elem.properties.beat_num));
                         map.addLayer({
-                            'id': "" + parseInt(elem.properties.beat_num),
+                            'id': "$" + parseInt(elem.properties.beat_num),
                             'type': 'fill',
                             'source': {
                                 'type': 'geojson',
@@ -152,7 +187,7 @@ export class AppComponent implements OnInit {
                             'layout': {},
                             'paint': {
                                 'fill-color': getRandomColor(),
-                                'fill-opacity': 0.6
+                                'fill-opacity': 0.1
                             }
                         });
 
@@ -165,3 +200,5 @@ export class AppComponent implements OnInit {
 
     }
 }
+
+*/

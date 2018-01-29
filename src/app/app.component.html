@@ -27,9 +27,10 @@
         <ul id="check-list-box" class="list-group checked-list-box">
           <mz-select-container>
             <select multiple mz-select id="options-select" [label]="''" [placeholder]="'Select you profil'" [(ngModel)]="myValue">
-              <option data-icon="assets/select-icon-1.jpg" class="left circle" [value]="pedestrian">Pedestrian</option>
-              <option data-icon="assets/select-icon-2.jpg" class="left circle" [value]="resident">Resident</option>
-              <option data-icon="assets/select-icon-3.jpg" class="left circle" [value]="driver">Driver</option>
+              <option data-icon="http://www.themintyard.com/wp-content/uploads/2017/11/icon-walk.png" class="left circle" [value]="'pedestrian'">Pedestrian</option>
+              <option data-icon="https://png.pngtree.com/element_pic/00/00/07/125784be9d029fd.jpg" class="left circle" [value]="'resident'">Resident</option>
+              <option data-icon="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Circle-icons-car.svg/2000px-Circle-icons-car.svg.png" class="left circle" [value]="'driver'">Driver</option>
+              <option data-icon="https://image.flaticon.com/icons/png/512/190/190624.png" class="left circle" [value]="'police'">Police</option>
             </select> 
           </mz-select-container>
         </ul>
