@@ -1,12 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-<h1>  {{myValue}}</h1>
   <div id="map">
   </div>
   <div class=".container-fluid">
     <div class="row">
       <div class="col-md-1">
-        <span id="tab" style="font-size:30px;cursor:pointer;" (click)="openNav()">&#9776;</span>
+        <span id="tab" style="text-align:center; width: 40px;font-size:30px;cursor:pointer; border-radius: 40px; background-color: white;" (click)="openNav()">&#9776;</span>
       </div>
       <div class="col-md-11">
         <img src="https://raw.githubusercontent.com/Bended/bsafe/master/images/Logo2.png" class="logo" alt="top-logo">
@@ -20,25 +19,27 @@
     <div class="parameters">
       <div class="form-group">
       </div>
-      <div class="well" id="selector" style="max-height: 400px;overflow: auto">
+      <div class="well" id="selector" style="max-height: 450px;overflow: auto">
         <div id="locationField">
-          <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text">
+          <input [(ngModel)]="address" id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text">
         </div>
+        <button mz-button (click)="getAddress()">
+          search
+        </button>
         <ul id="check-list-box" class="list-group checked-list-box">
           <mz-select-container>
             <select multiple mz-select id="options-select" [label]="''" [placeholder]="'Select you profil'" [(ngModel)]="myValue">
-              <option data-icon="http://www.themintyard.com/wp-content/uploads/2017/11/icon-walk.png" class="left circle" [value]="'pedestrian'">Pedestrian</option>
+              <option data-icon="http://www.themintyard.com/wp-content/uploads/2017/11/icon-walk.png" class="left circle" [value]="'pedestrain'">Pedestrian</option>
               <option data-icon="https://png.pngtree.com/element_pic/00/00/07/125784be9d029fd.jpg" class="left circle" [value]="'resident'">Resident</option>
               <option data-icon="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Circle-icons-car.svg/2000px-Circle-icons-car.svg.png" class="left circle" [value]="'driver'">Driver</option>
               <option data-icon="https://image.flaticon.com/icons/png/512/190/190624.png" class="left circle" [value]="'police'">Police</option>
-            </select> 
+            </select>
           </mz-select-container>
         </ul>
         <br />
         <mz-datepicker-container class="col s12">
           <input mz-datepicker [label]="'Date'" [options]="options" [(ngModel)]="date" id="datepicker" placeholder="Select your date" type="text">
         </mz-datepicker-container>
-
         <mz-timepicker-container class="col s12">
           <input mz-timepicker [label]="'Time'" [options]="options" id="timepicker" [(ngModel)]="time" placeholder="Select lunch time" type="text">
         </mz-timepicker-container>
