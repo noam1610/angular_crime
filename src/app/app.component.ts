@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-
         var list_district = [];
         let getRandomColor = function() {
             var letters = '0123456789ABCDEF';
@@ -100,5 +99,6 @@ export class AppComponent implements OnInit {
             console.log(this.data_polyg);
 
         })
+
     }
 }

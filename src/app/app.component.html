@@ -24,9 +24,15 @@
           <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text">
         </div>
         <ul id="check-list-box" class="list-group checked-list-box">
-          <mz-radio-button-container>
-            <input mz-radio-button [value]="username" [label]="'Radio text'" [withGap]="true" id="radio-button-id" name="radio-group" type="radio">
-          </mz-radio-button-container>
+          <mz-select-container>
+            <select multiple mz-select id="options-select" [label]="'Label'" [placeholder]="'Placeholder'">
+              <optgroup label="Group 1">
+                <option data-icon="assets/select-icon-1.jpg" class="left circle">Option 1</option>
+                <option data-icon="assets/select-icon-2.jpg" class="left circle">Option 2</option>
+                <option data-icon="assets/select-icon-3.jpg" class="left circle">Option 3</option>
+              </optgroup>
+            </select>
+          </mz-select-container>
           <li class="list-group-item" data-color="success">Woman</li>
           <li class="list-group-item" data-color="success">Pedestrian</li>
           <li class="list-group-item" data-color="danger">Resident</li>

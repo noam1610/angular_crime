@@ -4,7 +4,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MzButtonModule, MzInputModule } from 'ng2-materialize';
 import { MzRadioButtonModule } from 'ng2-materialize'
-
+import { MzSelectModule } from 'ng2-materialize'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { MzRadioButtonModule } from 'ng2-materialize'
     NoopAnimationsModule,
     MzButtonModule,
     MzInputModule,
-    MzRadioButtonModule
+    MzRadioButtonModule,
+    FormsModule,
+    MzSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
