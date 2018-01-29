@@ -32,11 +32,27 @@ export class AppComponent implements OnInit {
     myValue = 'pedestrian'
     data_polyg;
     map;
+    date;
+    time;
+
     search(){
         if(this.myValue == 'pedestrian'){
-            request("https://bitbucket.org/SarahCohen/hackaton/downloads/resident.json", function(error, response, body) {
+            console.log(this.date);
+            console.log(this.time[0] + this.time[1]);
+            var date = new Date(this.date);
+            var day = date.getDay();
+            console.log(day);
+
+            var hour = parseInt(this.time[0] + this.time[1]);
+            console.log(hour);
+
+
+            var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+            request("https://raw.githubusercontent.com/noam1610/angular_crime/master/resident.json", function(error, response, body) {
                 console.log("error", error)
-                console.log("body", body)
+                //console.log("body", JSON.parse(body))
+
                   var list_district = [];
                         let getRandomColor = function() {
                             var letters = '0123456789ABCDEF';
