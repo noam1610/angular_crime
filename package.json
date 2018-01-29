@@ -22,7 +22,11 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "fs-es6": "0.0.2",
     "jsonfile": "^4.0.0",
+    "load-json-file": "^4.0.0",
     "mapbox-gl": "^0.44.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
