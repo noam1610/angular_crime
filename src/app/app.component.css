@@ -10,3 +10,134 @@ body {
     width: 100%;
     z-index: -1;
 }
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0px;
+    color: #60b0f4;
+}
+
+#tab{
+    color: #60b0f4;
+    position: fixed;
+    top: 20px;
+    left: 30px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #60b0f4;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 0px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
+.well .list-group {
+    margin-bottom: 0px;
+}
+
+#ex1Slider .slider-selection {
+    background: #BABABA;
+    align-content: center;
+}
+
+#usr{
+    margin: 3px 0px;
+    width: 100%
+}
+
+#selector{
+    background: color #00000000;;
+    border: #000000;
+    margin-top: 25px;
+}
+
+#get-checked-data{
+    margin-top: 20px;
+    background-color: #fed136;
+    border: #60b0f4;
+    transition: background-color .15s ease-in-out,border .15s ease-in-out;
+}
+
+#get-checked-data:hover{
+    background-color: #ffffff;
+    color: #fed136;
+    border: #fed136 1px solid;
+}
+
+
+.logo{
+    align-items: center;
+    width: 240px;
+    height: 80px;
+    position: fixed;
+    right: 45%;
+    top: 15px;
+    padding: 15px;
+    /*background-color:rgba(255, 255, 255, 0.8);*/
+}
+
+#logo_menu{
+    width: 25%;
+    margin-left: 90px;
+}
+
+.top3{
+    position: fixed;
+    display: none;
+    padding: 10px;
+    top: 80px;
+    right: 50px;
+    height: auto;
+    width: 20%;
+}
+
+@media screen and (max-width: 768px){
+    .top3{
+        display: none;
+    }
+}
+
+#autocomplete{
+    width: 211px;
+    border-radius: 2px;
+    margin-bottom: 3px;
+}

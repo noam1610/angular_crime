@@ -16,19 +16,28 @@ import {
     RequestOptions
 } from '@angular/http';
 import * as request from 'request';
-
+import { MzButtonModule, MzInputModule } from 'ng2-materialize';
+import { MzRadioButtonModule } from 'ng2-materialize'
 
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    
 })
 
 export class AppComponent implements OnInit {
     title = 'app';
     data_polyg;
 
+    openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
 
     constructor() {
 
