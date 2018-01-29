@@ -91,7 +91,7 @@ body {
 }
 
 #get-checked-data{
-    margin-top: 20px;
+    margin-top: 0px;
     background-color: #fed136;
     border: #60b0f4;
     transition: background-color .15s ease-in-out,border .15s ease-in-out;
@@ -106,10 +106,10 @@ body {
 
 .logo{
     align-items: center;
-    width: 240px;
-    height: 80px;
+    width: 150px;
+    height: 70px;
     position: fixed;
-    right: 45%;
+    right: 2%;
     top: 15px;
     padding: 15px;
     /*background-color:rgba(255, 255, 255, 0.8);*/
@@ -139,5 +139,5 @@ body {
 #autocomplete{
     width: 211px;
     border-radius: 2px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
