@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <h1>  {{myValue}}</h1>
+<!--  <h1>  {{myValue}}</h1> -->
   <div id="map">
   </div>
   <div class=".container-fluid">
@@ -26,24 +26,21 @@
         </div>
         <ul id="check-list-box" class="list-group checked-list-box">
           <mz-select-container>
-            <select multiple mz-select id="options-select" [label]="'Label'" [placeholder]="'Placeholder'" [(ngModel)]="myValue">
+            <select multiple mz-select id="options-select" [label]="''" [placeholder]="'Select you profil'" [(ngModel)]="myValue">
               <option data-icon="assets/select-icon-1.jpg" class="left circle" [value]="pedestrian">Pedestrian</option>
               <option data-icon="assets/select-icon-2.jpg" class="left circle" [value]="resident">Resident</option>
               <option data-icon="assets/select-icon-3.jpg" class="left circle" [value]="driver">Driver</option>
-            </select>
+            </select> 
           </mz-select-container>
         </ul>
         <br />
         <mz-datepicker-container class="col s12">
-          <input mz-datepicker [label]="'Date of birth'" [options]="options" [(ngModel)]="dateOfBirth" id="datepicker" placeholder="Select your birth date" type="text">
+          <input mz-datepicker [label]="'Date'" [options]="options" [(ngModel)]="dateOfBirth" id="datepicker" placeholder="Select your date" type="text">
         </mz-datepicker-container>
 
         <mz-timepicker-container class="col s12">
-          <input mz-timepicker [label]="'Lunch time'" [options]="options" id="timepicker" placeholder="Select lunch time" type="text">
+          <input mz-timepicker [label]="'Time'" [options]="options" id="timepicker" placeholder="Select lunch time" type="text">
         </mz-timepicker-container>
-
-        <span id="ex6CurrentSliderValLabel">What time : <span id="ex6SliderVal">3</span>h</span>
-        <input id="ex6" type="text" data-slider-min="0" data-slider-max="24" data-slider-step="0.5" data-slider-value="10" />
         <br />
         <button class="btn btn-primary col-xs-12" id="get-checked-data" (click)="search()">See my BSafe map</button>
       </div>
