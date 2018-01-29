@@ -37,6 +37,11 @@
         <mz-datepicker-container class="col s12">
           <input mz-datepicker [label]="'Date of birth'" [options]="options" [(ngModel)]="dateOfBirth" id="datepicker" placeholder="Select your birth date" type="text">
         </mz-datepicker-container>
+
+        <mz-timepicker-container class="col s12">
+          <input mz-timepicker [label]="'Lunch time'" [options]="options" id="timepicker" placeholder="Select lunch time" type="text">
+        </mz-timepicker-container>
+
         <span id="ex6CurrentSliderValLabel">What time : <span id="ex6SliderVal">3</span>h</span>
         <input id="ex6" type="text" data-slider-min="0" data-slider-max="24" data-slider-step="0.5" data-slider-value="10" />
         <br />
