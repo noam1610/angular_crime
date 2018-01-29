@@ -213,7 +213,7 @@ export class AppComponent implements OnInit {
                                 "coordinates": [-80.6935883, 41.9902391]
                             },
                             "properties": {
-                                "title": "Hey Guys!",
+                                "title": "LOCATED (:)",
                                 "icon": "monument"
                             }
                         }, {
@@ -223,7 +223,7 @@ export class AppComponent implements OnInit {
                         "coordinates": [point.lng, point.lat ]
                     },
                     "properties": {
-                        "title": "Hey Girls!",
+                        "title": "LOCATED :)",
                         "icon": "harbor"
                     }
                 }]
