@@ -1,5 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
+  <h1>  {{myValue}}</h1>
   <div id="map">
   </div>
   <div class=".container-fluid">
@@ -25,12 +26,10 @@
         </div>
         <ul id="check-list-box" class="list-group checked-list-box">
           <mz-select-container>
-            <select multiple mz-select id="options-select" [label]="'Label'" [placeholder]="'Placeholder'">
-              <optgroup label="Group 1">
-                <option data-icon="assets/select-icon-1.jpg" class="left circle">Option 1</option>
-                <option data-icon="assets/select-icon-2.jpg" class="left circle">Option 2</option>
-                <option data-icon="assets/select-icon-3.jpg" class="left circle">Option 3</option>
-              </optgroup>
+            <select multiple mz-select id="options-select" [label]="'Label'" [placeholder]="'Placeholder'" [(ngModel)]="myValue">
+              <option data-icon="assets/select-icon-1.jpg" class="left circle" [value]="pedestrian">Pedestrian</option>
+              <option data-icon="assets/select-icon-2.jpg" class="left circle" [value]="resident">Resident</option>
+              <option data-icon="assets/select-icon-3.jpg" class="left circle" [value]="driver">Driver</option>
             </select>
           </mz-select-container>
           <li class="list-group-item" data-color="success">Woman</li>

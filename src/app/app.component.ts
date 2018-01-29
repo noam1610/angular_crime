@@ -29,6 +29,7 @@ import { MzRadioButtonModule } from 'ng2-materialize'
 
 export class AppComponent implements OnInit {
     title = 'app';
+    myValue = 'pedestrian'
     data_polyg;
 
     openNav() {
