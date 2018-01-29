@@ -31,6 +31,49 @@ export class AppComponent implements OnInit {
     title = 'app';
     myValue = 'pedestrian'
     data_polyg;
+    map;
+    search(){
+        if(this.myValue == 'pedestrian'){
+            request("https://bitbucket.org/SarahCohen/hackaton/downloads/resident.json", function(error, response, body) {
+                console.log("error", error)
+                console.log("body", body)
+                  var list_district = [];
+                        let getRandomColor = function() {
+                            var letters = '0123456789ABCDEF';
+                            var color = '#';
+                            for (var i = 0; i < 6; i++) {
+                                color += letters[Math.floor(Math.random() * 16)];
+                            }
+                            return color;
+                        };
+                    console.log(this.data_polyg)
+                for (var i = 0; i < this.data_polyg.length; i++) {
+                    var elem = this.data_polyg[i];
+                    if (!list_district.includes(elem.properties.beat_num)) {
+                        list_district.push(elem.properties.beat_num)
+                        console.log(elem.properties.beat_num);
+                        this.map.addLayer({
+                            'id': elem.properties.beat_num,
+                            'type': 'fill',
+                            'source': {
+                                'type': 'geojson',
+                                'data': {
+                                    'type': 'Feature',
+                                    'geometry': elem.geometry
+                                }
+                            },
+                            'layout': {},
+                            'paint': {
+                                'fill-color': getRandomColor(),
+                                'fill-opacity': 0.6
+                            }
+                        });
+
+                    }
+                }
+            })
+        }
+    }
 
     openNav() {
         document.getElementById("mySidenav").style.width = "250px";
@@ -63,16 +106,15 @@ export class AppComponent implements OnInit {
         };
 
         mapboxgl.accessToken = 'pk.eyJ1Ijoibm9hbTE2MTAiLCJhIjoiY2phamgzdzFxMjlhbTMzbGV1aWg4MWY3dyJ9.ozjyeDjaIBuTLIlMsYeMbg';
-        var map = new mapboxgl.Map({
+        this.map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/noam1610/cjcyy7a72041t2squlngaxgdw',
             center: [-87.8, 41.87],
             zoom: 10
         });
 
-
+        let map = this.map
         map.on('load', function() {
-
             request("https://raw.githubusercontent.com/Bended/bsafe/master/noam.json", function(error, response, body) {
                 console.log('error:', error); // Print the error if one occurred
                 console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -83,7 +125,7 @@ export class AppComponent implements OnInit {
                     var elem = this.data_polyg[i];
                     if (!list_district.includes(elem.properties.beat_num)) {
                         list_district.push(elem.properties.beat_num)
-                        console.log(elem.properties.beat_num)
+                        console.log(elem.properties.beat_num);
                         map.addLayer({
                             'id': elem.properties.beat_num,
                             'type': 'fill',
